@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tvmaze/static/css/main.124532fd.css",
+    "main.js": "/tvmaze/static/js/main.01b77651.js",
+    "index.html": "/tvmaze/index.html",
+    "main.124532fd.css.map": "/tvmaze/static/css/main.124532fd.css.map",
+    "main.01b77651.js.map": "/tvmaze/static/js/main.01b77651.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.124532fd.css",
+    "static/js/main.01b77651.js"
+  ]
+}
