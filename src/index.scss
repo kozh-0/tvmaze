@@ -26,10 +26,13 @@ nav {padding: 0 15px}
 }
 .content {
   min-height: calc(100vh - 64px - 50px);
+  // min-height: calc(100vh - 64px - 50px);
   padding: 1.5rem 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+
+  &-block{display: block;}
 }
 
 
@@ -82,6 +85,9 @@ nav {padding: 0 15px}
   &-img{
     max-height: 500px;
     max-width: 100%;
+  }
+  &-text {
+    padding: 20px 0;
   }
 }
 

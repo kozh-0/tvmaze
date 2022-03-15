@@ -23,11 +23,11 @@ export default function Main() {
     
 
     return(
-    <>
-        <Search handlSubmit={handlSubmit} input={input} setInput={setInput}/>
-        <div className="content">
-            {!data.length ? <Preloader/> : <FilmList data={data}/>}
-        </div>
-    </>
+        <>
+            <Search handlSubmit={handlSubmit} input={input} setInput={setInput}/>
+            <div className="content">
+                {!data.length ? <Preloader/> : <FilmList data={data}/>}
+            </div>
+        </>
     )
 }

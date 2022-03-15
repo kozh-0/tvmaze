@@ -18,7 +18,7 @@ export default function OneFilmData({data}) {
     } = data;
     console.log(webChannel);
     return (
-        <div>
+        <main className="content content-block">
             <div className="page-top">
                 <div className="page-div-img">
                     {!image ? (
@@ -39,10 +39,10 @@ export default function OneFilmData({data}) {
                 </div>
             </div>
 
-            <p>
+            <p className="page-text">
                 { summary.startsWith('<') ? summary.slice(3, -4) : summary }
             </p>
-        </div>
+        </main>
     )
 }
 
