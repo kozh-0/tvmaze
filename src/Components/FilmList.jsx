@@ -1,7 +1,7 @@
 
 import FilmItem from "./FilmItem"
 
-export default function FilmLits({data}) {
+export default function FilmList({data}) {
 
     return(
         <>

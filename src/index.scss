@@ -8,7 +8,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+::selection {
+  background: #000;
+  color: #fff;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -30,27 +33,27 @@ nav {padding: 0 15px}
 }
 
 
-.card-content {
-  display: flex;
-  justify-content: space-between;
-}
 .card {
   margin: 15px;
   height: 500px;
   width: 270px;
-}
-.card-title {
-  line-height: 0;
+    &-content {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-title {
+      line-height: 0;
+    }
+    &-image {
+      height: 400px;
+      img{
+        height: 100%;
+        object-fit: cover;
+        background-repeat: no-repeat;
+      }
+    }
 }
 
-.card-image {
-  height: 400px;
-}
-.card-image img {
-  height: 100%;
-  object-fit: cover;
-  background-repeat: no-repeat;
-}
 
 .card .card-content {
   padding: 0;
@@ -58,4 +61,35 @@ nav {padding: 0 15px}
 
 .card-info {
   padding: 18px;
+  flex-grow: 1;
+}
+
+
+.btn {
+  margin: 15px 0;
+}
+
+.page {
+  &-top {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  &-div-img{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &-img{
+    max-height: 500px;
+    max-width: 100%;
+  }
+}
+
+
+
+
+@media (max-width: 620px) {
+  .page-div-img {
+    justify-content: center;
+  }
 }

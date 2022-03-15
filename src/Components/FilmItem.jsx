@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 export default function FilmItem(props) {
 
@@ -8,11 +8,10 @@ export default function FilmItem(props) {
             image,
             genres,
             name,
-
         }
     } = props;
     
-    // console.log(image ? );
+
     return (
         <div className="card">
             <div className="card-image">
@@ -23,7 +22,7 @@ export default function FilmItem(props) {
             </div>
 
             <div className="card-info">
-                <span className="card-title">{name}</span>
+                <Link to={`/onefilm/${name}`} className="card-title">{name}</Link>
                 <div className="card-content">
                     <p>{genres[0]}</p>
                     <p>{score.toFixed(2)}</p>
