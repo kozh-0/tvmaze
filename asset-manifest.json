@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/tvmaze/static/css/main.11019ad0.css",
-    "main.js": "/tvmaze/static/js/main.c87437d9.js",
+    "main.js": "/tvmaze/static/js/main.22d683fe.js",
     "index.html": "/tvmaze/index.html",
     "main.11019ad0.css.map": "/tvmaze/static/css/main.11019ad0.css.map",
-    "main.c87437d9.js.map": "/tvmaze/static/js/main.c87437d9.js.map"
+    "main.22d683fe.js.map": "/tvmaze/static/js/main.22d683fe.js.map"
   },
   "entrypoints": [
     "static/css/main.11019ad0.css",
-    "static/js/main.c87437d9.js"
+    "static/js/main.22d683fe.js"
   ]
 }
