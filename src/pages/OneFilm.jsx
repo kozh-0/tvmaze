@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 import OneFilmData from "../Components/OneFilmData";
 import Preloader from "../Components/Preloader";
+import { getDataById, getDataByName } from "../apis";
 
 
 
@@ -10,28 +11,45 @@ export default function OneFilm() {
     const [data, setData] = useState({});
     const [load, setLoad] = useState(true);
     const {goBack} = useHistory();
-    const {name} = useParams();
-
-
+    const {id, name} = useParams();
 
     useEffect(() => {
-        fetch(`https://api.tvmaze.com/singlesearch/shows?q=${name}`)
-        .then(res => res.json())
-        .then(res => {
-            setData(res);
-            setLoad(false)
-        })
-    }, [name])
+        if (id !== 'null') {
+            getDataById(id)
+            .then(res => {
+                setData(res);
+                setLoad(false)
+            })
+        }
+        if (id === 'null') {
+            getDataByName(name)
+            .then(res => {
+                setData(res);
+                setLoad(false)
+            })
+        }
+          // eslint-disable-next-line  
+    }, [])
 
     return (
-        <div className="film-page">
+        <>
             <button 
                 onClick={goBack}
                 className='btn'
             >Back</button>
-            {!load ? (
-                <OneFilmData data={data}/>
-            ) : <Preloader/>}
-        </div>
+            <div className="film-page">
+                {!load ? (
+                    <OneFilmData data={data}/>
+                ) : <Preloader/>}
+            </div>
+        </>
     )
 }
+
+/* {!(id === 'null') ? (
+                <div className="film-page">
+                    {!load ? (
+                        <OneFilmData data={data}/>
+                    ) : <Preloader/>}
+                </div>
+            ) : <div className="film-page content"><h2>No result</h2></div>} */

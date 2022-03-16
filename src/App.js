@@ -16,7 +16,7 @@ export default function App() {
 				<main className="container">
 					<Switch>
 						<Route exact path='/' component={Main}/>
-						<Route path='/onefilm/:name' component={OneFilm}/>
+						<Route path='/onefilm/:id/:name' component={OneFilm}/>
 						<NotFound/>
 					</Switch>
 				</main>

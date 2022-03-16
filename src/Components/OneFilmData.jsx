@@ -11,18 +11,18 @@ export default function OneFilmData({data}) {
         premiered,
         ended,
         rating: {average},
-        webChannel,
+        // webChannel,
         image,
         summary,
-
+        officialSite
     } = data;
-    console.log(webChannel);
+
     return (
         <main className="content content-block">
             <div className="page-top">
                 <div className="page-div-img">
                     {!image ? (
-                        <img src={`https://via.placeholder.com/500x400.png?text=${name}`} alt={name}/>
+                        <img style={{maxWidth: '100%'}} src={`https://via.placeholder.com/500x400.png?text=${name}`} alt={name}/>
                         ) : <img src={image.original} alt={name} className='page-img'/>
                     }
                 </div>
@@ -36,11 +36,12 @@ export default function OneFilmData({data}) {
                     {premiered ? <p>Started: {premiered}</p> : null}
                     {ended ? <p>Ended: {ended}</p> : null}
                     {average ? <p>Rating: {average}</p> : null}
+                    {officialSite ? <a href={officialSite}>Web site</a> : null}
                 </div>
             </div>
 
             <p className="page-text">
-                { summary.startsWith('<') ? summary.slice(3, -4) : summary }
+                {summary ? (summary.startsWith('<') ? summary.slice(3, -4) : summary) : null}
             </p>
         </main>
     )
