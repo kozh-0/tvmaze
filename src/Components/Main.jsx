@@ -3,31 +3,33 @@ import React, { useState, useEffect } from "react";
 import FilmList from "./FilmList";
 import Search from "./Search";
 import Preloader from "./Preloader";
-import { getDataByInput } from "../apis";
+import { getDataBySortedInput, getDataBySortedPage } from "../apis";
 
 
-function storage() {
-    const ls = localStorage.getItem('input')
-    return ls ? ls : localStorage.setItem('input', 'mans');
-}
+
 
 export default function Main() {
-    const [input, setInput] = useState(storage())
+    const [input, setInput] = useState(localStorage.getItem('input'))
     const [data, setData] = useState([]);
     
-// поменять на https://api.tvmaze.com/shows?page=1
     const handlSubmit = () => {
-        getDataByInput(input)
-            .then(data => setData(data))
-        localStorage.setItem('input', input)
+        if (input !== '') {
+            getDataBySortedInput(input)
+                .then(data => setData(data))
+            localStorage.setItem('input', input)
+        }
     }
-
+    
     useEffect(() => {
-        getDataByInput(input)
-            .then(data => setData(data))
-        localStorage.setItem('input', input)
-        // eslint-disable-next-line
-    }, []);
+        if (input) {
+            getDataBySortedInput(input)
+                .then(data => setData(data))
+        }
+        if (input === '') {
+            getDataBySortedPage()
+                .then(data => setData(data))
+        }
+    }, [input]);
     
 
     return(
