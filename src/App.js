@@ -1,9 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import store from "./Redux/store";
 
 
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
+import Header from "./Components/Tools/Header";
+import Footer from "./Components/Tools/Footer";
 import Main from "./Components/Main";
 import OneFilm from'./pages/OneFilm';
 import NotFound from './pages/NotFound'
@@ -19,7 +18,7 @@ export default function App() {
 			<Header/>
 				<main className="container">
 					<Switch>
-						<Route exact path='/' component={Main} store={store}/>
+						<Route exact path='/' component={Main}/>
 						<Route path='/onefilm/:id/:name' component={OneFilm}/>
 						<Route component={NotFound}/>
 					</Switch>

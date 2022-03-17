@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
 import OneFilmData from "../Components/OneFilmData";
-import Preloader from "../Components/Preloader";
+import Preloader from "../Components/Tools/Preloader";
 import { getDataById, getDataByName } from "../apis";
 
 

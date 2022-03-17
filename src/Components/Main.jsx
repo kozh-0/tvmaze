@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import FilmList from "./FilmList";
-import Search from "./Search";
-import Preloader from "./Preloader";
+import Search from "./Tools/Search";
+import Preloader from "./Tools/Preloader";
 import { getDataBySortedInput, getDataBySortedPage } from "../apis";
 
 
 
 
-function Main({likes}) {
+function Main(props) {
     const [input, setInput] = useState(localStorage.getItem('input'))
     const [data, setData] = useState([]);
     const [currentPage] = useState(1);
@@ -44,7 +44,7 @@ function Main({likes}) {
             <div className="content">
                 {!data.length ? <Preloader/> : <FilmList data={data}/>}
             </div>
-            
+            {props.likes}
         </>
     )
 }
