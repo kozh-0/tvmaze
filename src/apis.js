@@ -1,19 +1,15 @@
 
 
-const getDataBySortedPage = async () => {
-    return await fetch(`https://api.tvmaze.com/shows?page=1`)
+const getDataBySortedPage = async (page) => {
+    return await fetch(`https://api.tvmaze.com/shows?page=${page}`)
         .then(res => res.json())
-        .then (data => data.sort((a, b) => {
-            if (a.name < b.name) return -1;
-        }))
+        .then (data => data.sort((a, b) => a.name < b.name ? -1 : 1))
 }
 
 const getDataBySortedInput = async (input) => {
     return fetch(`https://api.tvmaze.com/search/shows?q=${input}`)
         .then(response => response.json())
-        .then (data => data.sort((a, b) => {
-            if (a.show.name < b.show.name) return -1;
-        }))
+        .then (data => data.sort((a, b) => a.show.name < b.show.name ? -1 : 1))
 }
 
 const getDataByName = async (name) => {

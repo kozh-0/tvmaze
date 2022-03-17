@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
 import FilmList from "./FilmList";
 import Search from "./Search";
@@ -8,10 +9,15 @@ import { getDataBySortedInput, getDataBySortedPage } from "../apis";
 
 
 
-export default function Main() {
+function Main({likes}) {
     const [input, setInput] = useState(localStorage.getItem('input'))
     const [data, setData] = useState([]);
-    
+    const [currentPage] = useState(1);
+
+
+
+
+
     const handlSubmit = () => {
         if (input !== '') {
             getDataBySortedInput(input)
@@ -26,10 +32,10 @@ export default function Main() {
                 .then(data => setData(data))
         }
         if (input === '') {
-            getDataBySortedPage()
+            getDataBySortedPage(currentPage)
                 .then(data => setData(data))
         }
-    }, [input]);
+    }, [input, currentPage]);
     
 
     return(
@@ -38,6 +44,17 @@ export default function Main() {
             <div className="content">
                 {!data.length ? <Preloader/> : <FilmList data={data}/>}
             </div>
+            
         </>
     )
 }
+
+
+function mapStateToProps(state) {
+    console.log('mapStateToProps > ', state);
+    return {
+        likes: state.likes
+    }
+}
+
+export default connect(mapStateToProps)(Main);
