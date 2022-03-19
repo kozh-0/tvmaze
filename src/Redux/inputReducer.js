@@ -4,8 +4,7 @@ const initialState = {
 }
 
 export const inputReducer = (state = initialState, action) => {
-    // каждый кейс это как изменится стор
-    console.log('inputREDUCER', action);
+
     
     switch (action.type) {
         case 'HANDLE_INPUT': {

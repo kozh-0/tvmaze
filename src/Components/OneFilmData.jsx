@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux";
 
+export default function OneFilmData() {
+    
+    const data = useSelector(state => state.onePageReducer);
 
-export default function OneFilmData({data}) {
-    console.log(data);
     const {
         name,
         language,

@@ -5,7 +5,7 @@ import MainPages from "./MainPages";
 
 export default function FilmList() {
 
-    const data = useSelector(state => state.testReducer)
+    const data = useSelector(state => state.fetchReducer)
     
     return(
         <>

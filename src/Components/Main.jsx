@@ -15,11 +15,9 @@ export default function Main() {
     const [page, setPage] = useState(1);
 
 
-    const value = useSelector(state => state.testReducer);
+    const value = useSelector(state => state.fetchReducer);
     const text = useSelector(state => state.inputReducer.text);
     const dispatch = useDispatch()
-
-
 
     
     
@@ -43,13 +41,6 @@ export default function Main() {
                     onChange={(_, num) => setPage(num)}
                     sx={{marginY: 1, marginX: 'auto'}}
                     styles={{justifyContent: 'center'}}
-                    /* renderItem={(item) => {
-                        <PaginationItem
-                            component={Link}
-                            to={`/?page=${item.page}`}
-                            {...item}
-                        />
-                    }} */
                     /> : null}
         </>
     )

@@ -1,35 +1,33 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
 import OneFilmData from "../Components/OneFilmData";
 import Preloader from "../Components/Tools/Preloader";
-import { getDataById, getDataByName } from "../apis";
+import { useDispatch } from "react-redux";
 
-
+import { getId, getName } from "../Redux/actions"
 
 export default function OneFilm() {
-    const [data, setData] = useState({});
-    const [load, setLoad] = useState(true);
+    
+    const [isLoaded, setIsLoaded] = useState(false)
     const {goBack} = useHistory();
     const {id, name} = useParams();
 
+
+    const dispatch = useDispatch();
+
+
     useEffect(() => {
+
         if (id !== 'null') {
-            getDataById(id)
-            .then(res => {
-                setData(res);
-                setLoad(false)
-            })
+            dispatch(getId(id))
+            .then(() => setIsLoaded(true))
         }
         if (id === 'null') {
-            getDataByName(name)
-            .then(res => {
-                setData(res);
-                setLoad(false)
-            })
+            dispatch(getName(name))
+            .then(() => setIsLoaded(true))
         }
-          // eslint-disable-next-line  
-    }, [])
+    }, [id, name, dispatch])
 
     return (
         <>
@@ -38,18 +36,11 @@ export default function OneFilm() {
                 className='btn'
             >Back</button>
             <div className="film-page">
-                {!load ? (
-                    <OneFilmData data={data}/>
+                {isLoaded ? (
+                    <OneFilmData/>
                 ) : <Preloader/>}
             </div>
         </>
     )
 }
 
-/* {!(id === 'null') ? (
-                <div className="film-page">
-                    {!load ? (
-                        <OneFilmData data={data}/>
-                    ) : <Preloader/>}
-                </div>
-            ) : <div className="film-page content"><h2>No result</h2></div>} */

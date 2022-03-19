@@ -1,4 +1,6 @@
 
+
+// INPUT =================================
 export function handleInputText(text) {
     return {
         type: "HANDLE_INPUT",
@@ -12,6 +14,9 @@ export function inputReset() {
     }
 }
 
+
+
+// FETCH =================================
 
 export const getPages = (page) => {
     return async (dispatch) => {
@@ -37,7 +42,6 @@ export const getInput = (input) => {
         .then(response => response.json())
         .then (data => data.sort((a, b) => a.show.name < b.show.name ? -1 : 1))
         .then(data => {
-            console.log(data);
             dispatch({
                 type: 'GET_INPUT',
                 data
@@ -49,3 +53,38 @@ export const getInput = (input) => {
     }
 }
 
+
+
+
+// ONE_PAGE =================================
+
+export const getId = (id) => {
+    return async (dispatch) => {
+        return await fetch(`https://api.tvmaze.com/lookup/shows?thetvdb=${id}`)
+        .then(res => res.json())
+        .then(data => {
+            dispatch({
+                type: 'GET_BY_ID',
+                data
+            })
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+}
+export const getName = (name) => {
+    return async (dispatch) => {
+        return await fetch(`https://api.tvmaze.com/singlesearch/shows?q=${name}`)
+        .then(res => res.json())
+        .then(data => {
+            dispatch({
+                type: 'GET_BY_NAME',
+                data
+            })
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+}
