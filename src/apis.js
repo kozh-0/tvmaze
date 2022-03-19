@@ -3,7 +3,7 @@
 const getDataBySortedPage = async (page) => {
     return await fetch(`https://api.tvmaze.com/shows?page=${page}`)
         .then(res => res.json())
-        .then (data => data.sort((a, b) => a.name < b.name ? -1 : 1))
+        .then(data => data.sort((a, b) => a.name < b.name ? -1 : 1))
 }
 
 const getDataBySortedInput = async (input) => {

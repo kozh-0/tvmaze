@@ -1,41 +1,46 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { getDataBySortedInput, getDataBySortedPage } from "../apis";
+import { Pagination, /* PaginationItem ,*/ Stack} from "@mui/material";
+// import { Link } from "react-router-dom";
 
 import FilmList from "./FilmList";
 import Search from "./Tools/Search";
 import Preloader from "./Tools/Preloader";
-import { getDataBySortedInput, getDataBySortedPage } from "../apis";
 
 
+// import { useSelector, useDispatch } from "react-redux";
 
 
-function Main(props) {
-    const [input, setInput] = useState(localStorage.getItem('input'))
+export default function Main(props) {
+
+    console.log(props);
+
     const [data, setData] = useState([]);
-    const [currentPage] = useState(1);
+    const [input, setInput] = useState(localStorage.getItem('input') ? localStorage.getItem('input') : '')
+    const [page, setPage] = useState(1);
 
 
-
-
+    /* const value = useSelector(state => state)
+    console.log(value); */
 
     const handlSubmit = () => {
         if (input !== '') {
             getDataBySortedInput(input)
                 .then(data => setData(data))
-            localStorage.setItem('input', input)
         }
     }
     
     useEffect(() => {
-        if (input) {
-            getDataBySortedInput(input)
-                .then(data => setData(data))
-        }
+        getDataBySortedInput(input)
+        .then(data => setData(data))
+        localStorage.setItem('input', input)
+        
+        
         if (input === '') {
-            getDataBySortedPage(currentPage)
-                .then(data => setData(data))
+            getDataBySortedPage(page)
+            .then(data => setData(data))
         }
-    }, [input, currentPage]);
+    }, [input, page]);
     
 
     return(
@@ -44,17 +49,24 @@ function Main(props) {
             <div className="content">
                 {!data.length ? <Preloader/> : <FilmList data={data}/>}
             </div>
-            {props.likes}
+            <Stack>
+                {!input ? <Pagination
+                    count={244}
+                    page={page}
+                    onChange={(_, num) => setPage(num)}
+                    sx={{marginY: 1, marginX: 'auto'}}
+                    styles={{justifyContent: 'center'}}
+                    /* renderItem={(item) => {
+                        <PaginationItem
+                            component={Link}
+                            to={`/?page=${item.page}`}
+                            {...item}
+                        />
+                    }} */
+                    /> : null}
+
+            </Stack>
         </>
     )
 }
 
-
-function mapStateToProps(state) {
-    console.log('mapStateToProps > ', state);
-    return {
-        likes: state.likes
-    }
-}
-
-export default connect(mapStateToProps)(Main);

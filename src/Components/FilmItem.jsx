@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function FilmItem(props) {
-    console.log(props);
+    // console.log(props);
     const {
             image,
             genres,
