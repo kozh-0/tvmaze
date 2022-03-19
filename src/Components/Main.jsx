@@ -1,56 +1,43 @@
 import React, { useState, useEffect } from "react";
-import { getDataBySortedInput, getDataBySortedPage } from "../apis";
-import { Pagination, /* PaginationItem ,*/ Stack} from "@mui/material";
-// import { Link } from "react-router-dom";
+import { Pagination } from "@mui/material";
+
 
 import FilmList from "./FilmList";
 import Search from "./Tools/Search";
 import Preloader from "./Tools/Preloader";
 
 
-// import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getPages } from "../Redux/actions";
 
+export default function Main() {
 
-export default function Main(props) {
-
-    console.log(props);
-
-    const [data, setData] = useState([]);
-    const [input, setInput] = useState(localStorage.getItem('input') ? localStorage.getItem('input') : '')
     const [page, setPage] = useState(1);
 
 
-    /* const value = useSelector(state => state)
-    console.log(value); */
+    const value = useSelector(state => state.testReducer);
+    const text = useSelector(state => state.inputReducer.text);
+    const dispatch = useDispatch()
 
-    const handlSubmit = () => {
-        if (input !== '') {
-            getDataBySortedInput(input)
-                .then(data => setData(data))
-        }
-    }
+
+
+    
     
     useEffect(() => {
-        getDataBySortedInput(input)
-        .then(data => setData(data))
-        localStorage.setItem('input', input)
         
+        localStorage.setItem('input', text);
+        if (text === '') dispatch(getPages(page));
         
-        if (input === '') {
-            getDataBySortedPage(page)
-            .then(data => setData(data))
-        }
-    }, [input, page]);
+    }, [text, page, dispatch]);
     
 
     return(
         <>
-            <Search handlSubmit={handlSubmit} input={input} setInput={setInput}/>
+            <Search />
             <div className="content">
-                {!data.length ? <Preloader/> : <FilmList data={data}/>}
+                {!value.length ? <Preloader/> : <FilmList/>}
             </div>
-            <Stack>
-                {!input ? <Pagination
+                {!text ? <Pagination
                     count={244}
                     page={page}
                     onChange={(_, num) => setPage(num)}
@@ -64,8 +51,6 @@ export default function Main(props) {
                         />
                     }} */
                     /> : null}
-
-            </Stack>
         </>
     )
 }

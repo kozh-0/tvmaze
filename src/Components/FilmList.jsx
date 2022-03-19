@@ -1,8 +1,11 @@
 
+import { useSelector } from "react-redux";
 import FilmItem from "./FilmItem";
 import MainPages from "./MainPages";
 
-export default function FilmList({data}) {
+export default function FilmList() {
+
+    const data = useSelector(state => state.testReducer)
     
     return(
         <>

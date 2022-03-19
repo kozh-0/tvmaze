@@ -1,4 +1,22 @@
-export default function Search({handlSubmit, input, setInput}) {
+import { useDispatch, useSelector } from "react-redux"
+import { getInput, handleInputText } from "../../Redux/actions"
+
+
+/* setInput(e.target.value) */
+export default function Search() {
+
+    const dispatch = useDispatch()
+    const text = useSelector(state => state.inputReducer.text)
+
+    const handle = (e) => {
+        dispatch(handleInputText(e.target.value))
+    }
+
+    const handlSubmit = () => {
+        if (text !== '') {
+            dispatch(getInput(text))
+        }
+    }
 
     return (
         <div className="row">
@@ -7,8 +25,8 @@ export default function Search({handlSubmit, input, setInput}) {
                     type='search'
                     placeholder='search'
                     onKeyDown={(e) => {if (e.key === 'Enter') handlSubmit()}}
-                    onChange={(e) => setInput(e.target.value)}
-                    value={input}
+                    onChange={handle}
+                    value={text}
                 />
                 <button 
                     className="btn"

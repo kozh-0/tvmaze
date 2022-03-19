@@ -8,9 +8,6 @@ import OneFilm from'./pages/OneFilm';
 import NotFound from './pages/NotFound'
 
 
-
-
-
 export default function App() {
 
 	return (

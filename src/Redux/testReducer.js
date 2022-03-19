@@ -1,16 +1,16 @@
 
-import { getPages } from "./actions";
+// import { getPages } from "./actions";
 
-export const testReducer = (state = [2412], action) => {
+export const testReducer = (state = [], action) => {
     // каждый кейс это как изменится стор
     // console.log(action);
     
     switch (action.type) {
         case 'GET_PAGES': {
-            return {
-                ...state,
-                getPages
-            }
+            return action.data;
+        }
+        case 'GET_INPUT': {
+            return action.data;
         }
         
         default:
