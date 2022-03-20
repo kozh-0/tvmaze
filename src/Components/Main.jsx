@@ -23,7 +23,6 @@ export default function Main() {
     
     useEffect(() => {
         
-        localStorage.setItem('input', text);
         if (text === '') dispatch(getPages(page));
         
     }, [text, page, dispatch]);

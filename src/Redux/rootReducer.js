@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import { fetchReducer } from "./fetchReducer";
-import { inputReducer } from "./inputReducer";
-import { onePageReducer } from "./onePageReducer";
+import { fetchReducer } from "./reducers/fetchReducer";
+import { inputReducer } from "./reducers/inputReducer";
+import { onePageReducer } from "./reducers/onePageReducer";
 
 
 export const rootReducer = combineReducers({

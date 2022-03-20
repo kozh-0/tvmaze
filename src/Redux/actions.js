@@ -1,15 +1,18 @@
+import { GET_BY_ID, GET_BY_NAME, GET_INPUT, GET_PAGES, HANDLE_INPUT, INPUT_RESET } from "./types"
+
+
 
 
 // INPUT =================================
 export function handleInputText(text) {
     return {
-        type: "HANDLE_INPUT",
+        type: HANDLE_INPUT,
         text
     }
 }
 export function inputReset() {
     return {
-        type: "INPUT_RESET",
+        type: INPUT_RESET,
         text: ''
     }
 }
@@ -25,7 +28,7 @@ export const getPages = (page) => {
         .then(data => data.sort((a, b) => a.name < b.name ? -1 : 1))
         .then(data => {
             dispatch({
-                type: 'GET_PAGES',
+                type: GET_PAGES,
                 data
             })
         })
@@ -43,7 +46,7 @@ export const getInput = (input) => {
         .then (data => data.sort((a, b) => a.show.name < b.show.name ? -1 : 1))
         .then(data => {
             dispatch({
-                type: 'GET_INPUT',
+                type: GET_INPUT,
                 data
             })
         })
@@ -64,7 +67,7 @@ export const getId = (id) => {
         .then(res => res.json())
         .then(data => {
             dispatch({
-                type: 'GET_BY_ID',
+                type: GET_BY_ID,
                 data
             })
         })
@@ -79,7 +82,7 @@ export const getName = (name) => {
         .then(res => res.json())
         .then(data => {
             dispatch({
-                type: 'GET_BY_NAME',
+                type: GET_BY_NAME,
                 data
             })
         })

@@ -1,12 +1,14 @@
+import { GET_INPUT, GET_PAGES } from "../types";
 
 
-export const onePageReducer = (state = {}, action) => {
+export const fetchReducer = (state = [], action) => {
+
     
     switch (action.type) {
-        case 'GET_BY_ID': {
+        case GET_PAGES: {
             return action.data;
         }
-        case 'GET_BY_NAME': {
+        case GET_INPUT: {
             return action.data;
         }
         
@@ -14,4 +16,5 @@ export const onePageReducer = (state = {}, action) => {
             return state;
     }
 }
+
 
