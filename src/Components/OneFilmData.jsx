@@ -28,7 +28,7 @@ export default function OneFilmData() {
                         ) : <img src={image.original} alt={name} className='page-img'/>
                     }
                 </div>
-                <div>
+                <div className="page-info">
                     <h2>{name}</h2>
                     {language ? <p>Language: {language}</p> : null}
                     {/* <p>Country: {country}</p> */}
@@ -43,9 +43,10 @@ export default function OneFilmData() {
             </div>
 
             <p className="page-text">
-                {summary ? (summary.startsWith('<') ? summary.slice(3, -4) : summary) : null}
+                {summary ? summary.replaceAll(/(<([^>]+)>)/ig, "") : null}
             </p>
         </main>
     )
 }
 
+// {summary ? (summary.startsWith('<') ? summary.slice(3, -4) : summary) : null}

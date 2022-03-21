@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { getInput, handleInputText } from "../../Redux/actions"
 
 
-/* setInput(e.target.value) */
 export default function Search() {
 
     const dispatch = useDispatch()
@@ -22,8 +21,9 @@ export default function Search() {
         <div className="row">
             <div className="input-field">
                 <input
-                    type='search'
-                    placeholder='search'
+                    className="input-field-text-area"
+                    type='text'
+                    placeholder='Search'
                     onKeyDown={(e) => {if (e.key === 'Enter') handlSubmit()}}
                     onChange={handle}
                     value={text}

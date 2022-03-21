@@ -8,7 +8,7 @@ export default function Header() {
 
 
   	return (
-      	<nav className="#43a047 green darken-1">
+      	<nav className="#5e35b1 deep-purple darken-1">
       		<div className="nav-wrapper">
        			<Link 
 				   to="/" 

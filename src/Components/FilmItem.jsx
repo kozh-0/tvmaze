@@ -18,15 +18,17 @@ export default function FilmItem(props) {
                     <img src={`https://via.placeholder.com/500x400.png?text=${name}`} alt={name}/>
                     ) : <img src={image.medium} alt={name}/>
                 }
-            </div>
-
-            <div className="card-info">
-                <Link to={`/onefilm/${thetvdb}/${name}`} className="card-title">{name}</Link>
                 <div className="card-content">
-                    <p>{genres[0]}</p>
-                    <p>{premiered ? premiered.substring(0, 4) : null}</p>
+                    <p className="card-content-info">{genres[0]}</p>
+                    <p className="card-content-info">{premiered ? premiered.substring(0, 4) : null}</p>
                 </div>
             </div>
+
+            <Link to={`/onefilm/${thetvdb}/${name}`} className="card-info">
+                <div className="card-title" >
+                    {name}
+                </div>
+            </Link>
         </div>
     )
 }
