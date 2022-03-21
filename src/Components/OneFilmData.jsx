@@ -38,7 +38,11 @@ export default function OneFilmData() {
                     {premiered ? <p>Started: {premiered}</p> : null}
                     {ended ? <p>Ended: {ended}</p> : null}
                     {average ? <p>Rating: {average}</p> : null}
-                    {officialSite ? <a href={officialSite}>Web site</a> : null}
+                    {officialSite ? (<a 
+                        className="btn" 
+                        style={{margin: 0}}
+                        href={officialSite}
+                        >Web site</a>) : null}
                 </div>
             </div>
 

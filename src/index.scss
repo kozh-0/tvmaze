@@ -13,6 +13,20 @@ body {
   background: #000;
   color: #fff;
 } */
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgb(100, 100, 100);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color:#26a69a;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -72,7 +86,8 @@ nav {padding: 0 15px}
     }
     &-image {
       position: relative;
-      height: 400px;
+      height: 350px;
+      // height: 400px;
       img{
         height: 100%;
         object-fit: cover;
