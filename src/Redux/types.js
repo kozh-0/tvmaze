@@ -4,6 +4,7 @@ const GET_BY_ID = "GET_BY_ID";
 const GET_BY_NAME = "GET_BY_NAME";
 const HANDLE_INPUT = "HANDLE_INPUT";
 const INPUT_RESET = "INPUT_RESET";
+const PAGE_VALUE_RESET = "PAGE_VALUE_RESET";
 
 
 export {
@@ -12,5 +13,6 @@ export {
     GET_BY_ID,
     GET_BY_NAME,
     HANDLE_INPUT,
-    INPUT_RESET
+    INPUT_RESET,
+    PAGE_VALUE_RESET
 }

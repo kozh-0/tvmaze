@@ -1,10 +1,17 @@
-import { GET_BY_ID, GET_BY_NAME, GET_INPUT, GET_PAGES, HANDLE_INPUT, INPUT_RESET } from "./types"
+import { GET_BY_ID, GET_BY_NAME, GET_INPUT, GET_PAGES, HANDLE_INPUT, INPUT_RESET, PAGE_VALUE_RESET } from "./types"
+
+
+
+export function pageValueReset() {
+    return {
+        type: PAGE_VALUE_RESET
+    }
+}
 
 
 
 
-
-
+// Передаваемая переменная идет в action, если ее нет, хватит type
 // INPUT =================================
 export function handleInputText(text) {
     return {

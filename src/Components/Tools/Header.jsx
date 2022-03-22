@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { inputReset } from "../../Redux/actions";
+import { inputReset, pageValueReset } from "../../Redux/actions";
 
 export default function Header() {
 
@@ -15,7 +15,7 @@ export default function Header() {
 				   className="brand-logo"
 				   onClick={() => {
 					   dispatch(inputReset())
-					   dispatch({type: "PAGE_RESET"})
+					   dispatch(pageValueReset())
 					}}
 				   >Tv Maze</Link>
       		</div>
