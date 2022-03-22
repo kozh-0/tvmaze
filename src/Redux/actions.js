@@ -3,6 +3,8 @@ import { GET_BY_ID, GET_BY_NAME, GET_INPUT, GET_PAGES, HANDLE_INPUT, INPUT_RESET
 
 
 
+
+
 // INPUT =================================
 export function handleInputText(text) {
     return {
@@ -12,8 +14,7 @@ export function handleInputText(text) {
 }
 export function inputReset() {
     return {
-        type: INPUT_RESET,
-        text: ''
+        type: INPUT_RESET
     }
 }
 

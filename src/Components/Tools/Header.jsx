@@ -13,7 +13,10 @@ export default function Header() {
        			<Link 
 				   to="/" 
 				   className="brand-logo"
-				   onClick={() => dispatch(inputReset())}
+				   onClick={() => {
+					   dispatch(inputReset())
+					   dispatch({type: "PAGE_RESET"})
+					}}
 				   >Tv Maze</Link>
       		</div>
     	</nav>

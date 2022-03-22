@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Pagination } from "@mui/material";
 
 
@@ -12,7 +12,10 @@ import { getPages } from "../Redux/actions";
 
 export default function Main() {
 
-    const [page, setPage] = useState(1);
+    
+    
+    const pageValue = useSelector(state => state.pageValueReducer.pageValue);
+    console.log(pageValue);
 
 
     const value = useSelector(state => state.fetchReducer);
@@ -23,9 +26,9 @@ export default function Main() {
     
     useEffect(() => {
         
-        if (text === '') dispatch(getPages(page));
+        if (text === '') dispatch(getPages(pageValue));
         
-    }, [text, page, dispatch]);
+    }, [text, pageValue, dispatch]);
     
 
     return(
@@ -34,7 +37,7 @@ export default function Main() {
             <div className="content">
                 {!value.length ? <Preloader/> : <FilmList/>}
             </div>
-                {!text ? <Pagination
+               {/*  {!text ? <Pagination
                     count={244}
                     page={page}
                     onChange={(_, num) => setPage(num)}
@@ -42,7 +45,7 @@ export default function Main() {
                     size="small"
                     sx={{marginY: 1, marginX: 'auto'}}
                     styles={{justifyContent: 'center'}}
-                    /> : null}
+                    /> : null} */}
         </>
     )
 }
