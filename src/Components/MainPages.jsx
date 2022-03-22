@@ -19,8 +19,8 @@ export default function MainPages(props) {
                     ) : <img src={image.medium} alt={name}/>
                 }
                 <div className="card-content">
-                    <p className="card-content-info">{genres[0]}</p>
-                    <p className="card-content-info">{premiered ? premiered.substring(0, 4) : null}</p>
+                    {genres[0] ? <p className="card-content-info">{genres[0]}</p> : null}
+                    {premiered ? <p className="card-content-info">{premiered ? premiered.substring(0, 4) : null}</p> : null}
                 </div>
             </div>
 
