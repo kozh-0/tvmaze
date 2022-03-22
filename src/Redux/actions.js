@@ -26,6 +26,7 @@ export const getPages = (page) => {
         return await fetch(`https://api.tvmaze.com/shows?page=${page}`)
         .then(res => res.json())
         .then(data => data.sort((a, b) => a.name < b.name ? -1 : 1))
+        .then(data => data.slice(0, 32))
         .then(data => {
             dispatch({
                 type: GET_PAGES,

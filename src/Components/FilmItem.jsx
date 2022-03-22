@@ -25,9 +25,7 @@ export default function FilmItem(props) {
             </div>
 
             <Link to={`/onefilm/${thetvdb}/${name}`} className="card-info">
-                <div className="card-title" >
-                    {name}
-                </div>
+                <div className="card-title"> {name} </div>
             </Link>
         </div>
     )

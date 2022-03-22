@@ -25,14 +25,8 @@ export default function MainPages(props) {
             </div>
 
             <Link to={`/onefilm/${thetvdb}/${name}`} className="card-info">
-                <div className="card-title" >
-                    {name}
-                </div>
+                <div className="card-title"> {name} </div>
             </Link>
         </div>
     )
 }
-
-/* <div className="card-info">
-                <Link to={`/onefilm/${thetvdb}/${name}`} className="card-title">{name}</Link>
-            </div> */

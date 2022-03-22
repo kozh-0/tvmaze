@@ -18,7 +18,7 @@ export default function Main() {
     const value = useSelector(state => state.fetchReducer);
     const text = useSelector(state => state.inputReducer.text);
     const dispatch = useDispatch()
-
+    
     
     
     useEffect(() => {
@@ -38,6 +38,8 @@ export default function Main() {
                     count={244}
                     page={page}
                     onChange={(_, num) => setPage(num)}
+                    color="secondary"
+                    size="small"
                     sx={{marginY: 1, marginX: 'auto'}}
                     styles={{justifyContent: 'center'}}
                     /> : null}

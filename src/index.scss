@@ -163,4 +163,10 @@ nav {padding: 0 15px}
   background-color: #fff;
   display: flex;
   justify-content: center;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.MuiButtonBase-root {
+  color: #fff !important;
 }

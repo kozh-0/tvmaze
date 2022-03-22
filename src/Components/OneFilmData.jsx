@@ -32,7 +32,7 @@ export default function OneFilmData() {
                     <h2>{name}</h2>
                     {language ? <p>Language: {language}</p> : null}
                     {/* <p>Country: {country}</p> */}
-                    {status? <p>Status: {status}</p> : null}
+                    {status ? <p>Status: {status}</p> : null}
                     {genres.length ? <p>Genres: {genres.join(', ')}</p> : null}
                     {averageRuntime ? <p>Average runtime: {averageRuntime} min</p> : null}
                     {premiered ? <p>Started: {premiered}</p> : null}
