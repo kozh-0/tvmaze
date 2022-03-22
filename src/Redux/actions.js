@@ -1,4 +1,13 @@
-import { GET_BY_ID, GET_BY_NAME, GET_INPUT, GET_PAGES, HANDLE_INPUT, INPUT_RESET, PAGE_VALUE_RESET } from "./types"
+import { 
+    GET_BY_ID, 
+    GET_BY_NAME, 
+    GET_INPUT, 
+    GET_PAGES, 
+    HANDLE_INPUT, 
+    INPUT_RESET, 
+    PAGE_VALUE_HANDLER, 
+    PAGE_VALUE_RESET 
+} from "./types"
 
 
 
@@ -7,7 +16,12 @@ export function pageValueReset() {
         type: PAGE_VALUE_RESET
     }
 }
-
+export function pageValueHandler(pageValue) {
+    return {
+        type: PAGE_VALUE_HANDLER,
+        pageValue
+    }
+}
 
 
 

@@ -8,20 +8,14 @@ import Preloader from "./Tools/Preloader";
 
 
 import { useSelector, useDispatch } from "react-redux";
-import { getPages } from "../Redux/actions";
+import { getPages, pageValueHandler } from "../Redux/actions";
 
 export default function Main() {
 
-    
-    
     const pageValue = useSelector(state => state.pageValueReducer.pageValue);
-    console.log(pageValue);
-
-
     const value = useSelector(state => state.fetchReducer);
     const text = useSelector(state => state.inputReducer.text);
     const dispatch = useDispatch()
-    
     
     
     useEffect(() => {
@@ -33,19 +27,22 @@ export default function Main() {
 
     return(
         <>
+        {/* <button onClick={() => dispatch(pageValueHandler(9))}>sssss</button> */}
             <Search />
             <div className="content">
                 {!value.length ? <Preloader/> : <FilmList/>}
             </div>
-               {/*  {!text ? <Pagination
+                {!text ? <Pagination
                     count={244}
-                    page={page}
-                    onChange={(_, num) => setPage(num)}
+                    page={pageValue}
+                    onChange={(_, num) => {
+                        dispatch(pageValueHandler(num))
+                    }}
                     color="secondary"
                     size="small"
                     sx={{marginY: 1, marginX: 'auto'}}
                     styles={{justifyContent: 'center'}}
-                    /> : null} */}
+                    /> : null}
         </>
     )
 }
