@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Pagination } from "@mui/material";
 
 
+
 import FilmList from "./FilmList";
 import Search from "./Tools/Search";
 import Preloader from "./Tools/Preloader";
@@ -35,12 +36,12 @@ export default function Main() {
                     count={244}
                     page={pageValue}
                     onChange={(_, num) => {
-                        dispatch(pageValueHandler(num))
+                        dispatch(pageValueHandler(num));
+                        document.documentElement.scrollTop = 0;
                     }}
                     color="secondary"
-                    size="small"
+                    size="large"
                     sx={{marginY: 1, marginX: 'auto'}}
-                    styles={{justifyContent: 'center'}}
                     /> : null}
         </>
     )

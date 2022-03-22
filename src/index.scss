@@ -1,5 +1,5 @@
 *{box-sizing: border-box;}
-
+// html {scroll-behavior: smooth;}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,6 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #232741;
+  // transform: scale(80%)
 }
 /* ::selection {
   background: #000;
@@ -34,15 +35,15 @@ code {
 
 
 
-
-nav {padding: 0 15px}
+.header {padding: 0 15px}
 .page-footer {padding: 0}
 .container {
   max-width: 1332px;
   margin: 0 auto;
 }
 .content {
-  min-height: calc(100vh - 64px - 50px);
+  min-height: calc(100vh - 148px - 50px);
+  // min-height: calc(100vh - 64px - 50px);
   padding: 1.5rem 0;
   display: flex;
   flex-wrap: wrap;
@@ -119,6 +120,7 @@ nav {padding: 0 15px}
 
 .film-page {
   color: white;
+  min-height: calc(100vh - 130px - 50px);
 
 }
 
@@ -159,6 +161,16 @@ nav {padding: 0 15px}
   margin-bottom: 0;
 }
 
+
+
+
+
+.MuiPaginationItem-previousNext {
+  display: none !important;
+}
+.pagination {
+  padding: 0 !important;
+}
 .MuiPagination-root {
   background-color: #fff;
   display: flex;
@@ -167,6 +179,6 @@ nav {padding: 0 15px}
   box-shadow: none;
 }
 
-.MuiButtonBase-root {
-  color: #fff !important;
+.MuiPaginationItem-root {
+  color: white !important;
 }
