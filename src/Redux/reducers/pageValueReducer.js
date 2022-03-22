@@ -1,14 +1,12 @@
 import { PAGE_VALUE_HANDLER, PAGE_VALUE_RESET } from "../types";
 
 const initialState = {
-    pageValue: 5
+    pageValue: 1
 }
 
 
 export const pageValueReducer = (state = initialState, action) => {
 
-    console.log(action);
-    
     switch (action.type) {
         case PAGE_VALUE_HANDLER: {
             return {
@@ -22,7 +20,6 @@ export const pageValueReducer = (state = initialState, action) => {
                 pageValue: 1
             };
         }
-        
         
         
         default:

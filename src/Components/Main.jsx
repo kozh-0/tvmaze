@@ -27,7 +27,6 @@ export default function Main() {
 
     return(
         <>
-        {/* <button onClick={() => dispatch(pageValueHandler(9))}>sssss</button> */}
             <Search />
             <div className="content">
                 {!value.length ? <Preloader/> : <FilmList/>}
