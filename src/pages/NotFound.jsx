@@ -1,4 +1,8 @@
+import { useHistory } from "react-router-dom";
+
 export default function NotFound() {
+
+    const { goBack } = useHistory()
 
     const styles = {
         flexDirection: 'column',
@@ -9,9 +13,12 @@ export default function NotFound() {
     }
 
     return (
-        <div className="" style={styles}>
-            <h2>Page not found</h2>
-            <h2>¯\_(ツ)_/¯</h2>
-        </div>
+        <>
+            <button className="btn" onClick={goBack}>Back</button>
+            <div style={styles}>
+                <h2>Page not found</h2>
+                <h2>¯\_(ツ)_/¯</h2>
+            </div>
+        </>
     );
 }
