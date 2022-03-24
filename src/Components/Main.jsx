@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Pagination } from "@mui/material";
 
 
-
 import FilmList from "./FilmList";
 import Search from "./Tools/Search";
 import Preloader from "./Tools/Preloader";
