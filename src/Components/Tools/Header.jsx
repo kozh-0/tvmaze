@@ -14,8 +14,8 @@ export default function Header() {
 				   to="/" 
 				   className="brand-logo"
 				   onClick={() => {
-					   dispatch(inputReset())
-					   dispatch(pageValueReset())
+					   dispatch(inputReset)
+					   dispatch(pageValueReset)
 					}}
 				   >Tv Maze</Link>
       		</div>

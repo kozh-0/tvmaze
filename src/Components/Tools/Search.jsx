@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
-import { getInput, handleInputText } from "../../Redux/actions"
+import { handleInputText } from "../../Redux/actions"
+import { getInput } from "../../Redux/thunks"
 
 
 export default function Search() {

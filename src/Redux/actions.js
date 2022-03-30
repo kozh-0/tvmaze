@@ -7,102 +7,96 @@ import {
     INPUT_RESET, 
     PAGE_VALUE_HANDLER, 
     PAGE_VALUE_RESET 
-} from "./types"
+} from "./types";
 
-import axios from "axios"
+import axios from "axios";
 
-export function pageValueReset() {
-    return {
-        type: PAGE_VALUE_RESET
-    }
-}
-export function pageValueHandler(pageValue) {
-    return {
-        type: PAGE_VALUE_HANDLER,
-        pageValue
-    }
-}
+export const pageValueReset = {
+    type: PAGE_VALUE_RESET
+};
+
+export const pageValueHandler = (pageValue) => ({
+    type: PAGE_VALUE_HANDLER,
+    pageValue
+});
 
 
 
 // Передаваемая переменная идет в action, если ее нет, хватит type
 // INPUT =================================
-export function handleInputText(text) {
-    return {
-        type: HANDLE_INPUT,
-        text
-    }
-}
-export function inputReset() {
-    return {
-        type: INPUT_RESET
-    }
-}
+export const handleInputText = (text) => ({
+    type: HANDLE_INPUT,
+    text
+});
 
+export const inputReset = {
+    type: INPUT_RESET
+};
 
 
 // FETCH =================================
 
-export const getPages = (page) => {
-    return async (dispatch) => {
-        return await axios.get(`https://api.tvmaze.com/shows`, {
-            params: { page }
-        })
-        .then(res => res.data.sort((a, b) => a.name < b.name ? -1 : 1))
-        .then(data => data.slice(0, 32))
-        .then(data => {
-            dispatch({
-                type: GET_PAGES,
-                data
-            })
-        })
-        .catch(err => console.log(err.toJSON()))
-    }
-}
+export const getPagesAction = (data) => ({
+    type: GET_PAGES,
+    data
+})
 
 
-export const getInput = (input) => {
-    return async (dispatch) => {
-        return await axios.get(`https://api.tvmaze.com/search/shows?q=${input}`)
-        .then (res => res.data.sort((a, b) => a.show.name < b.show.name ? -1 : 1))
-        .then(data => {
-            dispatch({
-                type: GET_INPUT,
-                data
-            })
-        })
-        .catch(err => console.log(err.toJSON()))
-    }
-}
+export const getInputAction = (data) => ({
+    type: GET_INPUT,
+    data
+})
+
+/* export const getInput = (input) => (dispatch) => {
+    axios.get(`https://api.tvmaze.com/search/shows?q=${input}`)
+    .then(res => res.data.sort((a, b) => a.show.name < b.show.name ? -1 : 1))
+    .then(data => dispatch(getInputAction(data)))
+    .catch(err => console.log(err.toJSON()))
+} */
+
 
 
 
 
 // ONE_PAGE =================================
 
+const getIdAction = (data) => ({
+    type: GET_BY_ID,
+    data
+})
+
 export const getId = (id) => {
     return async (dispatch) => {
         return await axios.get(`https://api.tvmaze.com/lookup/shows?thetvdb=${id}`)
-        .then(res => res.data)
-        .then(data => {
-            dispatch({
-                type: GET_BY_ID,
-                data
-            })
-        })
+        .then(res => dispatch(getIdAction(res.data)))
         .catch(err => console.log(err.toJSON()))
     }
 }
+/* export const getId = (id) => {
+    return async (dispatch) => {
+        return await axios.get(`https://api.tvmaze.com/lookup/shows?thetvdb=${id}`)
+        .then(res => dispatch(getIdAction(res.data)))
+        .catch(err => console.log(err.toJSON()))
+    }
+} */
+
+
+const getNameAction = (data) => ({
+    type: GET_BY_NAME,
+    data
+})
+
 export const getName = (name) => {
     return async (dispatch) => {
         return await axios.get(`https://api.tvmaze.com/singlesearch/shows?q=${name}`)
-        .then(res => res.data)
-        .then(data => {
-            dispatch({
-                type: GET_BY_NAME,
-                data
-            })
-        })
+        .then(res => dispatch(getNameAction(res.data)))
         .catch(err => console.log(err.toJSON()))
     }
 }
+/* export const getName = (name) => {
+    return async (dispatch) => {
+        return await axios.get(`https://api.tvmaze.com/singlesearch/shows?q=${name}`)
+        .then(res => dispatch(getNameAction(res.data)))
+        .catch(err => console.log(err.toJSON()))
+    }
+} */

@@ -8,7 +8,8 @@ import Preloader from "./Tools/Preloader";
 
 
 import { useSelector, useDispatch } from "react-redux";
-import { getPages, pageValueHandler } from "../Redux/actions";
+import { pageValueHandler } from "../Redux/actions";
+import { getPages } from "../Redux/thunks";
 
 export default function Main() {
 
