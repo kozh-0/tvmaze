@@ -1,3 +1,4 @@
+import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
 import { Pagination } from "@mui/material";
 
@@ -7,7 +8,6 @@ import Search from "./Tools/Search";
 import Preloader from "./Tools/Preloader";
 
 
-import { useSelector, useDispatch } from "react-redux";
 import { pageValueHandler } from "../Redux/actions";
 import { getPages } from "../Redux/thunks";
 

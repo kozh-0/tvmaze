@@ -17,4 +17,4 @@ export {
     INPUT_RESET,
     PAGE_VALUE_RESET,
     PAGE_VALUE_HANDLER
-}
+};

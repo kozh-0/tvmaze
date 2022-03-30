@@ -5,7 +5,7 @@ import OneFilmData from "../Components/OneFilmData";
 import Preloader from "../Components/Tools/Preloader";
 import { useDispatch } from "react-redux";
 
-import { getId, getName } from "../Redux/actions"
+import { getId, getName } from "../Redux/thunks";
 
 export default function OneFilm() {
     
