@@ -13,7 +13,6 @@ export default function OneFilmData() {
         premiered,
         ended,
         rating: {average},
-        // webChannel,
         image,
         summary,
         officialSite
@@ -30,27 +29,25 @@ export default function OneFilmData() {
                 </div>
                 <div className="page-info">
                     <h2>{name}</h2>
-                    {language ? <p>Language: {language}</p> : null}
-                    {/* <p>Country: {country}</p> */}
-                    {status ? <p>Status: {status}</p> : null}
+                    {language && <p>Language: {language}</p>}
+                    {status && <p>Status: {status}</p>}
                     {genres.length ? <p>Genres: {genres.join(', ')}</p> : null}
-                    {averageRuntime ? <p>Average runtime: {averageRuntime} min</p> : null}
-                    {premiered ? <p>Started: {premiered}</p> : null}
-                    {ended ? <p>Ended: {ended}</p> : null}
-                    {average ? <p>Rating: {average}</p> : null}
-                    {officialSite ? (<a 
+                    {averageRuntime && <p>Average runtime: {averageRuntime} min</p>}
+                    {premiered && <p>Started: {premiered}</p>}
+                    {ended && <p>Ended: {ended}</p>}
+                    {average && <p>Rating: {average}</p>}
+                    {officialSite && (<a 
                         className="btn" 
                         style={{margin: 0}}
                         href={officialSite}
-                        >Web site</a>) : null}
+                        >Web site</a>)}
                 </div>
             </div>
 
             <p className="page-text">
-                {summary ? summary.replaceAll(/(<([^>]+)>)/ig, "") : null}
+                {summary && summary.replaceAll(/(<([^>]+)>)/ig, "")}
             </p>
         </main>
     )
 }
 
-// {summary ? (summary.startsWith('<') ? summary.slice(3, -4) : summary) : null}
